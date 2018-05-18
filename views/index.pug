@@ -42,9 +42,9 @@ block schedule
           span(aria-hidden='true') &gt;
           span.sr-only Next
   .d-md-none
-    schedule-phone
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
   .d-none.d-md-block
-    schedule-pc
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
 block information
   h2 織田フィールドの情報 
   h4 代々木公園陸上競技場(織田フィールド)

@@ -3,65 +3,86 @@ table.table.table-bordered
   tbody
     tr
       td 
-      td  9:00-12:00
-      td 12:00-17:00
-      td 17:00-21:00
+      td {{ timeslots[0] }}
+      td {{ timeslots[1] }}
+      td {{ timeslots[2] }}
     tr
-      td 4/30(月)
+      td {{ dates[0] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[0][0] === 1')
+        img(src='images/remove.svg', v-if='status[0][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[0][1] === 1')
+        img(src='images/remove.svg', v-if='status[0][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[0][2] === 1')
+        img(src='images/remove.svg', v-if='status[0][2] === 2') 
     tr
-      td 5/1(火)
+      td {{ dates[1] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[1][0] === 1')
+        img(src='images/remove.svg', v-if='status[1][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[1][1] === 1')
+        img(src='images/remove.svg', v-if='status[1][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[1][2] === 1')
+        img(src='images/remove.svg', v-if='status[1][2] === 2') 
     tr
-      td 5/2(水)
+      td {{ dates[2] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[2][0] === 1')
+        img(src='images/remove.svg', v-if='status[2][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[2][1] === 1')
+        img(src='images/remove.svg', v-if='status[2][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[2][2] === 1')
+        img(src='images/remove.svg', v-if='status[2][2] === 2') 
     tr
-      td 5/3(木)
+      td {{ dates[3] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[3][0] === 1')
+        img(src='images/remove.svg', v-if='status[3][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[3][1] === 1')
+        img(src='images/remove.svg', v-if='status[3][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[3][2] === 1')
+        img(src='images/remove.svg', v-if='status[3][2] === 2') 
     tr
-      td 5/4(金)
+      td {{ dates[4] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[4][0] === 1')
+        img(src='images/remove.svg', v-if='status[4][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[4][1] === 1')
+        img(src='images/remove.svg', v-if='status[4][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[4][2] === 1')
+        img(src='images/remove.svg', v-if='status[4][2] === 2') 
     tr
-      td 5/5(土)
+      td {{ dates[5] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[5][0] === 1')
+        img(src='images/remove.svg', v-if='status[5][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[5][1] === 1')
+        img(src='images/remove.svg', v-if='status[5][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[5][2] === 1')
+        img(src='images/remove.svg', v-if='status[5][2] === 2') 
     tr
-      td 5/6(日)
+      td {{ dates[6] }}
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[6][0] === 1')
+        img(src='images/remove.svg', v-if='status[6][0] === 2') 
       td
-        img(src='images/circle.svg')
+        img(src='images/circle.svg', v-if='status[6][1] === 1')
+        img(src='images/remove.svg', v-if='status[6][1] === 2') 
       td
-        img(src='images/remove.svg')
+        img(src='images/circle.svg', v-if='status[6][2] === 1')
+        img(src='images/remove.svg', v-if='status[6][2] === 2') 
 </template>
 
 <script lang="ts">
@@ -69,6 +90,11 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
   
 @Component({
+  props: {
+    timeslots: Array,
+    dates: Array,
+    status: Array
+  }
 })
 export default class AddItemComponent extends Vue {
     private logout() {
