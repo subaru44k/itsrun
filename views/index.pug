@@ -1,0 +1,212 @@
+extends base 
+
+block navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+    a.navbar-brand(href='#') いつラン
+    span.navbar-text.mr-xl-5.mr-lg-5.mr-md-5
+     .text-light 競技場の利用時間確認
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggler', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarToggler.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            | 東京都の競技場
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='#') 織田フィールド
+            a.dropdown-item(href='#') 夢の島陸上競技場
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            | 神奈川県の競技場
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='#') 等々力陸上競技場
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='search', placeholder='競技場名を入力...', aria-label='Search')
+        button.btn.btn-success.my-2.my-sm-0(type='submit') 競技場検索
+block schedule
+  h2 織田フィールド 開放日
+  h5 織田フィールドの個人利用可能時間は以下の通りです。
+  .card.my-3.mx-auto(style='width: 30rem;')
+    .card-body
+      h5.card-title Advertizement here
+  nav(aria-label='Page navigation example')
+    ul.pagination
+      li.page-item
+        a.page-link(href='#', aria-label='Previous')
+          span(aria-hidden='true') &lt;
+          span.sr-only Previous
+      li.page-item
+        a.page-link(href='#', aria-label='Next')
+          span(aria-hidden='true') &gt;
+          span.sr-only Next
+  .table-smartphone.d-md-none
+    table.table.table-bordered
+      tbody
+        tr
+          td.align-middle(rowspan=3) 4/30(月)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td 
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/1(火)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/2(水)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/3(木)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/4(金)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/5(土)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td.align-middle(rowspan=3) 5/6(日)
+          td  9:00-12:00
+          td
+            img(src='images/circle.svg')
+        tr
+          td 12:00-17:00
+          td
+            img(src='images/remove.svg')
+        tr
+          td 17:00-21:00
+          td
+            img(src='images/remove.svg')
+  .table-pc.d-none.d-md-block
+    table.table.table-bordered
+      tbody
+        tr
+          td 
+          td  9:00-12:00
+          td 12:00-17:00
+          td 17:00-21:00
+        tr
+          td 4/30(月)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/1(火)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/2(水)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/3(木)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/4(金)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/5(土)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+        tr
+          td 5/6(日)
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/circle.svg')
+          td
+            img(src='images/remove.svg')
+block information
+  h2 織田フィールドの情報 
+  h4 代々木公園陸上競技場(織田フィールド)
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4061911644067!2d139.69173161501527!3d35.66699913836023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cad8ba1d227%3A0x8b5756b02932d0b1!2z5Luj44CF5pyo5YWs5ZySIOmZuOS4iuertuaKgOWgtA!5e0!3m2!1sja!2sjp!4v1526609293873', width='400', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4061911644067!2d139.69173161501527!3d35.66699913836023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cad8ba1d227%3A0x8b5756b02932d0b1!2z5Luj44CF5pyo5YWs5ZySIOmZuOS4iuertuaKgOWgtA!5e0!3m2!1sja!2sjp!4v1526609293873', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 千代田線代々木公園駅徒歩6分
+  h6 山手線原宿駅徒歩15分
+  h4 連絡先
+  h6 代々木公園サービスセンター
+  h6 （TEL:03-3469-6081）
