@@ -1,5 +1,7 @@
 extends base 
 
+append scripts
+  script(src='/javascripts/index.bundle.js')
 block navigation
   nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
     a.navbar-brand(href='#') いつラン
@@ -28,7 +30,7 @@ block schedule
   h5 織田フィールドの個人利用可能時間は以下の通りです。
   .card.my-3.mx-auto(style='width: 30rem;')
     .card-body
-      h5.card-title Advertizement here
+      h5.card-title Advertisement here
   nav(aria-label='Page navigation example')
     ul.pagination
       li.page-item
@@ -39,164 +41,10 @@ block schedule
         a.page-link(href='#', aria-label='Next')
           span(aria-hidden='true') &gt;
           span.sr-only Next
-  .table-smartphone.d-md-none
-    table.table.table-bordered
-      tbody
-        tr
-          td.align-middle(rowspan=3) 4/30(月)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td 
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/1(火)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/2(水)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/3(木)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/4(金)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/5(土)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td.align-middle(rowspan=3) 5/6(日)
-          td  9:00-12:00
-          td
-            img(src='images/circle.svg')
-        tr
-          td 12:00-17:00
-          td
-            img(src='images/remove.svg')
-        tr
-          td 17:00-21:00
-          td
-            img(src='images/remove.svg')
-  .table-pc.d-none.d-md-block
-    table.table.table-bordered
-      tbody
-        tr
-          td 
-          td  9:00-12:00
-          td 12:00-17:00
-          td 17:00-21:00
-        tr
-          td 4/30(月)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/1(火)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/2(水)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/3(木)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/4(金)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/5(土)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
-        tr
-          td 5/6(日)
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/circle.svg')
-          td
-            img(src='images/remove.svg')
+  .d-md-none
+    schedule-phone
+  .d-none.d-md-block
+    schedule-pc
 block information
   h2 織田フィールドの情報 
   h4 代々木公園陸上競技場(織田フィールド)

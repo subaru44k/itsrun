@@ -17,7 +17,7 @@
     "pug": "2.0.0-beta11",
     "vue": "^2.5.16",
     "vue-class-component": "^6.2.0",
-    "vue-loader": "^15.0.11",
+    "vue-loader": "^14.2.1",
     "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {
