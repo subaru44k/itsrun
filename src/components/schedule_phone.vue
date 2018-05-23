@@ -77,8 +77,6 @@ table.table.table-bordered
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import { ConditionalStatus } from './conditional_status';
-  
 @Component({
   props: {
     timeslots: Array,

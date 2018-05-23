@@ -1,6 +1,8 @@
 extends base 
 
 append scripts
+  script.
+    var weekIndex = !{JSON.stringify(week_index)};
   script(src='/javascripts/index.bundle.js')
 block navigation
   nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
@@ -34,11 +36,11 @@ block schedule
   nav(aria-label='Page navigation example')
     ul.pagination
       li.page-item
-        a.page-link(href='#', aria-label='Previous')
+        a.page-link(href=previous_index, aria-label='Previous')
           span(aria-hidden='true') &lt;
           span.sr-only Previous
       li.page-item
-        a.page-link(href='#', aria-label='Next')
+        a.page-link(href=next_index, aria-label='Next')
           span(aria-hidden='true') &gt;
           span.sr-only Next
   .d-md-none
