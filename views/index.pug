@@ -43,9 +43,9 @@ block schedule
         a.page-link(href=next_index, aria-label='Next')
           span(aria-hidden='true') &gt;
           span.sr-only Next
-  .d-md-none
+  .d-md-none(v-if='status.length != 0')
     schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
-  .d-none.d-md-block
+  .d-none.d-md-block(v-if='status.length != 0')
     schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
 block information
   h2 織田フィールドの情報 

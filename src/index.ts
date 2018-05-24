@@ -9,7 +9,6 @@ import SchedulePcComponent from './components/schedule_pc';
 import ConditionalStatus from './components/conditional_status';
 import { FirebaseControl } from './firebase/FirebaseControl';
 
-console.log(weekIndex);
 moment.locale('ja');
 
 // register component globally, but should register locally...
@@ -17,12 +16,13 @@ Vue.component('conditional-status', ConditionalStatus
 )
 
 const timeRange: string[] = [];
+const statusArray: number[][] = []
 const schedule = new Vue({
   el: '#app',
   data: {
     timeSlots: timeRange,
     dates: getDateList(weekIndex),
-    status: [[1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2], [2, 2, 1]]
+    status: statusArray
   },
   components: {
     'schedule-phone': ScheduleSmartphoneComponent,
@@ -32,13 +32,35 @@ const schedule = new Vue({
 
 
 const firebaseControl = new FirebaseControl(firebase);
-firebaseControl.getTimeRange('nVfuSmsj9cULg3712chv').then((ranges) => {
-    ranges.forEach(range => {
-        timeRange.push(range);
-    })
-});
+firebaseControl.getDefaultPageId().then((id) => {
+  setTimeRange(id, timeRange);
+  getStatus(id, statusArray);
+})
 
-firebaseControl.getStatusInRange('nVfuSmsj9cULg3712chv', )
+
+function setTimeRange(id: string, timeRange: string[]) {
+  firebaseControl.getTimeRange(id).then((ranges) => {
+      ranges.forEach(range => {
+          timeRange.push(range);
+      })
+  });
+}
+
+function getStatus(id: string, statusArray: number[][]) {
+  getDateListForFirebaseId(weekIndex).forEach(dateId => {
+    let statusInADay: number[] = [];
+    firebaseControl.getStatusInRange(id, dateId, 0).then((timeRange) => {
+      statusInADay.push(timeRange);
+    });
+    firebaseControl.getStatusInRange(id, dateId, 1).then((timeRange) => {
+      statusInADay.push(timeRange);
+    });
+    firebaseControl.getStatusInRange(id, dateId, 2).then((timeRange) => {
+      statusInADay.push(timeRange);
+    });
+    statusArray.push(statusInADay);
+  });
+}
 
 function getDateList(weekIndex: number) {
   return getDateMomentList(weekIndex).map((date) => {
