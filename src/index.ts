@@ -1,4 +1,5 @@
 declare const firebase: any;
+declare const stadiumId: any;
 declare const weekIndex: any;
 
 import Vue from 'vue'
@@ -32,10 +33,15 @@ const schedule = new Vue({
 
 
 const firebaseControl = new FirebaseControl(firebase);
-firebaseControl.getDefaultPageId().then((id) => {
-  setTimeRange(id, timeRange);
-  getStatus(id, statusArray);
-})
+if (stadiumId === 0) {
+  firebaseControl.getDefaultPageId().then((id) => {
+    setTimeRange(id, timeRange);
+    getStatus(id, statusArray);
+  })
+} else {
+  setTimeRange(stadiumId, timeRange);
+  getStatus(stadiumId, statusArray);
+}
 
 
 function setTimeRange(id: string, timeRange: string[]) {
