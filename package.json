@@ -20,8 +20,6 @@
     "vue-class-component": "^6.2.0",
     "vue-loader": "^14.2.1",
     "vue-template-compiler": "^2.5.16"
-  },
-  "devDependencies": {
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
     "webpack": "^4.8.3",
