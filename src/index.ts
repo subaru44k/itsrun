@@ -1,10 +1,10 @@
 declare const firebase: any;
 declare const stadiumId: any;
-declare const weekIndex: any;
 
 import Vue from 'vue'
 import moment from 'moment';
 
+import PaginationComponent from './components/pagination'
 import ScheduleSmartphoneComponent from './components/schedule_phone';
 import SchedulePcComponent from './components/schedule_pc';
 import ConditionalStatus from './components/conditional_status';
@@ -17,34 +17,61 @@ Vue.component('conditional-status', ConditionalStatus
 )
 
 const timeRange: string[] = [];
+const dateList: string[] = [];
 const statusArray: number[][] = []
+let firebaseControl;
+let weekIndex: number = 0;
 const schedule = new Vue({
   el: '#app',
   data: {
     timeSlots: timeRange,
-    dates: getDateList(weekIndex),
+    dates: dateList,
     status: statusArray
   },
+  beforeCreate: function() {
+    firebaseControl = new FirebaseControl(firebase);
+  },
+  created: function() {
+    setTableData(weekIndex, timeRange, dateList, statusArray);
+  },
+  methods: {
+    handlePreviousWeek: function() {
+      weekIndex--;
+      resetData(timeRange, dateList, statusArray);
+      setTableData(weekIndex, timeRange, dateList, statusArray);
+    },
+    handleNextWeek: function() {
+      weekIndex++;
+      resetData(timeRange, dateList, statusArray);
+      setTableData(weekIndex, timeRange, dateList, statusArray);
+    }
+  },
   components: {
+    'pagination': PaginationComponent,
     'schedule-phone': ScheduleSmartphoneComponent,
     'schedule-pc': SchedulePcComponent,
   }
 });
 
-
-const firebaseControl = new FirebaseControl(firebase);
-if (stadiumId === 0) {
-  firebaseControl.getDefaultPageId().then((id) => {
-    setTimeRange(id, timeRange);
-    getStatus(id, statusArray);
-  })
-} else {
-  setTimeRange(stadiumId, timeRange);
-  getStatus(stadiumId, statusArray);
+function resetData(timeRange: string[], dateList: string[], statusArray: number[][]) {
+  timeRange.splice(0, timeRange.length);
+  dateList.splice(0, dateList.length);
+  statusArray.splice(0, statusArray.length);
+}
+function setTableData(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
+  getAndSetDateList(weekIndex, dateList);
+  if (stadiumId === 0) {
+    firebaseControl.getDefaultPageId().then((id) => {
+      getAndSetTimeRange(id, timeRange);
+      getAndSetStatus(id, weekIndex, statusArray);
+    })
+  } else {
+    getAndSetTimeRange(stadiumId, timeRange);
+    getAndSetStatus(stadiumId, weekIndex, statusArray);
+  }
 }
 
-
-function setTimeRange(id: string, timeRange: string[]) {
+function getAndSetTimeRange(id: string, timeRange: string[]) {
   firebaseControl.getTimeRange(id).then((ranges) => {
       ranges.forEach(range => {
           timeRange.push(range);
@@ -52,7 +79,7 @@ function setTimeRange(id: string, timeRange: string[]) {
   });
 }
 
-function getStatus(id: string, statusArray: number[][]) {
+function getAndSetStatus(id: string, weekIndex: number, statusArray: number[][]) {
   getDateListForFirebaseId(weekIndex).forEach(dateId => {
     let statusInADay: number[] = [];
     firebaseControl.getStatusInRange(id, dateId, 0).then((timeRange) => {
@@ -68,9 +95,9 @@ function getStatus(id: string, statusArray: number[][]) {
   });
 }
 
-function getDateList(weekIndex: number) {
-  return getDateMomentList(weekIndex).map((date) => {
-    return date.format('MM/DD(ddd)');
+function getAndSetDateList(weekIndex: number, dateList: string[]) {
+  return getDateMomentList(weekIndex).forEach((date) => {
+    dateList.push(date.format('MM/DD(ddd)'));
   });
 }
 

@@ -7,15 +7,7 @@ block schedule
     .card-body
       h5.card-title Advertisement here
   nav(aria-label='Page navigation example')
-    ul.pagination
-      li.page-item
-        a#previous-link.page-link(href=previous_index, aria-label='Previous')
-          span(aria-hidden='true') &lt;
-          span.sr-only Previous
-      li.page-item
-        a#next-link.page-link(href=next_index, aria-label='Next')
-          span(aria-hidden='true') &gt;
-          span.sr-only Next
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
   .d-md-none(v-if='status.length != 0')
     schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
   .d-none.d-md-block(v-if='status.length != 0')

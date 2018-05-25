@@ -70,10 +70,4 @@ html(lang='en')
         var weekIndex = !{JSON.stringify(week_index)};
         var stadiumId = !{JSON.stringify(stadium_id)};
         var pageBase = !{JSON.stringify(page_base)};
-        var previousIndex = !{JSON.stringify(previous_index)};
-        var nextIndex = !{JSON.stringify(next_index)};
-        var previousPage = '/' + pageBase + '/week/' + previousIndex;
-        var nextPage = '/' + pageBase + '/week/' + nextIndex;
-        document.getElementById('previous-link').setAttribute('href', previousPage);
-        document.getElementById('next-link').setAttribute('href', nextPage);
       script(src='/javascripts/index.bundle.js')
