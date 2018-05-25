@@ -3,9 +3,6 @@ extends base
 block schedule
   h2 織田フィールド 開放日
   h5 織田フィールドの個人利用可能時間は以下の通りです。
-  .card.my-3.mx-auto(style='width: 30rem;')
-    .card-body
-      h5.card-title Advertisement here
   nav(aria-label='Page navigation example')
     pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
   .d-md-none(v-if='status.length != 0')
