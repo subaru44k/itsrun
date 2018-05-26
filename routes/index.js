@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  rendering('oda_field', 0, res, 0);
+  rendering('oda_field', '0', res, 0);
 });
 
 router.get('/oda_field', function(req, res, next) {

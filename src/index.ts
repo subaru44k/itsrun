@@ -1,5 +1,5 @@
 declare const firebase: any;
-declare const stadiumId: any;
+declare const stadiumId: string;
 
 import Vue from 'vue'
 import moment from 'moment';
@@ -60,7 +60,7 @@ function initializeTableData(weekIndex: number, timeRange: string[], dateList: s
 
 function updateTableContent(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
   updateDateList(weekIndex, dateList);
-  if (stadiumId === 0) {
+  if (stadiumId === '0') {
     firebaseControl.getDefaultPageId().then((id) => {
       updateTimeRange(id, timeRange);
       updateStatus(id, weekIndex, statusArray);
