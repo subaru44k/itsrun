@@ -30,20 +30,19 @@ const schedule = new Vue({
   },
   beforeCreate: function() {
     firebaseControl = new FirebaseControl(firebase);
+    initializeTableData(weekIndex, timeRange, dateList, statusArray);
   },
   created: function() {
-    setTableData(weekIndex, timeRange, dateList, statusArray);
+    updateTableContent(weekIndex, timeRange, dateList, statusArray);
   },
   methods: {
     handlePreviousWeek: function() {
       weekIndex--;
-      resetData(timeRange, dateList, statusArray);
-      setTableData(weekIndex, timeRange, dateList, statusArray);
+      updateTableContent(weekIndex, timeRange, dateList, statusArray);
     },
     handleNextWeek: function() {
       weekIndex++;
-      resetData(timeRange, dateList, statusArray);
-      setTableData(weekIndex, timeRange, dateList, statusArray);
+      updateTableContent(weekIndex, timeRange, dateList, statusArray);
     }
   },
   components: {
@@ -53,34 +52,51 @@ const schedule = new Vue({
   }
 });
 
-function resetData(timeRange: string[], dateList: string[], statusArray: number[][]) {
-  timeRange.splice(0, timeRange.length);
-  dateList.splice(0, dateList.length);
-  statusArray.splice(0, statusArray.length);
+function initializeTableData(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
+  initializeDateList(weekIndex, dateList);
+  initializeTimeRange(timeRange);
+  initializeStatus(statusArray);
 }
-function setTableData(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
-  getAndSetDateList(weekIndex, dateList);
+
+function updateTableContent(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
+  updateDateList(weekIndex, dateList);
   if (stadiumId === 0) {
     firebaseControl.getDefaultPageId().then((id) => {
-      getAndSetTimeRange(id, timeRange);
-      getAndSetStatus(id, weekIndex, statusArray);
+      updateTimeRange(id, timeRange);
+      updateStatus(id, weekIndex, statusArray);
     })
   } else {
-    getAndSetTimeRange(stadiumId, timeRange);
-    getAndSetStatus(stadiumId, weekIndex, statusArray);
+    updateTimeRange(stadiumId, timeRange);
+    updateStatus(stadiumId, weekIndex, statusArray);
   }
 }
 
-function getAndSetTimeRange(id: string, timeRange: string[]) {
+function initializeTimeRange(timeRange: string[]) {
+  timeRange.push('00:00');
+  timeRange.push('00:00');
+  timeRange.push('00:00');
+}
+
+function initializeStatus(statusArray: number[][]) {
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+  statusArray.push([0, 0, 0]);
+}
+
+function updateTimeRange(id: string, timeRange: string[]) {
   firebaseControl.getTimeRange(id).then((ranges) => {
-      ranges.forEach(range => {
-          timeRange.push(range);
+      ranges.forEach((range, index) => {
+          timeRange.splice(index, 1, range);
       })
   });
 }
 
-function getAndSetStatus(id: string, weekIndex: number, statusArray: number[][]) {
-  getDateListForFirebaseId(weekIndex).forEach(dateId => {
+function updateStatus(id: string, weekIndex: number, statusArray: number[][]) {
+  getDateListForFirebaseId(weekIndex).forEach((dateId, index) => {
     let statusInADay: number[] = [];
     firebaseControl.getStatusInRange(id, dateId, 0).then((timeRange) => {
       statusInADay.push(timeRange);
@@ -91,14 +107,20 @@ function getAndSetStatus(id: string, weekIndex: number, statusArray: number[][])
     firebaseControl.getStatusInRange(id, dateId, 2).then((timeRange) => {
       statusInADay.push(timeRange);
     });
-    statusArray.push(statusInADay);
+    statusArray.splice(index, 1, statusInADay);
   });
 }
 
-function getAndSetDateList(weekIndex: number, dateList: string[]) {
+function initializeDateList(weekIndex: number, dateList: string[]) {
   return getDateMomentList(weekIndex).forEach((date) => {
     dateList.push(date.format('MM/DD(ddd)'));
   });
+}
+
+function updateDateList(weekIndex: number, dateList: string[]) {
+  return getDateMomentList(weekIndex).forEach((date, index) => {
+    dateList.splice(index, 1, date.format('MM/DD(ddd)'));
+  })
 }
 
 function getDateListForFirebaseId(weekIndex: number) {
