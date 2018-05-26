@@ -20,12 +20,8 @@ router.get('/yumenoshima', function(req, res, next) {
 
 function rendering(page_name, stadiumId, res, index) {
   res.render(page_name, {
-    title: 'いつラン',
     stadium_id: stadiumId,
     week_index: index,
-    page_base: page_name,
-    previous_index: Number(index) - 1,
-    next_index: Number(index) + 1
   })
 }
 
