@@ -16,7 +16,7 @@ table.table.table-bordered
       td {{ timeslots[0]}}
       conditional-status(v-bind:condstatus='status[1][0]')
     tr
-      td {{ timeslots[0]}}
+      td {{ timeslots[1]}}
       conditional-status(v-bind:condstatus='status[1][1]')
     tr
       td {{ timeslots[2]}}
