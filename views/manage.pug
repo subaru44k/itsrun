@@ -55,29 +55,12 @@ html(lang='en')
       .container.pt-4
         h1= title
       .container.pt-4
-        table.table
-          thead
-            tr
-              th(scope='col') #
-              th(scope='col') First
-              th(scope='col') Last
-              th(scope='col') Handle
-          tbody
-            tr
-              th(scope='row') 1
-              td Mark
-              td Otto
-              td @mdo
-            tr
-              th(scope='row') 2
-              td Jacob
-              td Thornton
-              td @fat
-            tr
-              th(scope='row') 3
-              td Larry
-              td the Bird
-              td @twitter
+        stadium-selector(v-bind:stadiums='stadiums', v-on:item-selected='handleStadiumSelected')
+        nav(aria-label='Page navigation example')
+          pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+        manage-schedule(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status', v-on:schedule-changed='handleScheduleChanged')
+        button.btn.btn-primary(type='button', v-on:click='handleSubmit') Update
+
     block scripts
       // Optional JavaScript
       // jQuery first, then Popper.js, then Bootstrap JS

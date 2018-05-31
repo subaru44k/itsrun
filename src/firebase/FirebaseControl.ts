@@ -1,3 +1,5 @@
+import { StadiumInfo } from '../model/stadiuminfo';
+
 export class FirebaseControl {
     private db: any;
     private defaultCollectionName: string = 'default';
@@ -41,6 +43,29 @@ export class FirebaseControl {
             console.warn(err);
             return 0;
         });
+    }
+
+    getStadiumInfo(): Promise<StadiumInfo[]> {
+        return this.db.collection(this.stadiumCollectionName).get().then(querySnapShot => {
+            let infoArray: StadiumInfo[] = [];
+            querySnapShot.forEach(doc => {
+               infoArray.push(new StadiumInfo(doc.id, doc.data()['common_name']));
+            });
+            return infoArray;
+        })
+    }
+
+    putStatus(id: string, dateId: string, values: number[]): Promise<void> {
+        if (values.length != 3) {
+            return Promise.reject(new Error('Size of status value is not correct.'));
+        }
+        return this.getDateDocument(id).doc(dateId).set({
+            status: [
+                values[0],
+                values[1],
+                values[2]
+            ]
+        })
     }
 
     private getDateDocument(id: string) {

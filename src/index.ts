@@ -7,14 +7,9 @@ import moment from 'moment';
 import PaginationComponent from './components/pagination'
 import ScheduleSmartphoneComponent from './components/schedule_phone';
 import SchedulePcComponent from './components/schedule_pc';
-import ConditionalStatus from './components/conditional_status';
 import { FirebaseControl } from './firebase/FirebaseControl';
 
 moment.locale('ja');
-
-// register component globally, but should register locally...
-Vue.component('conditional-status', ConditionalStatus
-)
 
 const timeRange: string[] = [];
 const dateList: string[] = [];

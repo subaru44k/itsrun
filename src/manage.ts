@@ -1,41 +1,39 @@
 declare const firebase: any;
-declare const VueMaterial: any;
 
 import Vue from 'vue'
 import moment from 'moment';
 
 import PaginationComponent from './components/pagination'
-import ScheduleSmartphoneComponent from './components/schedule_phone';
-import SchedulePcComponent from './components/schedule_pc';
-import ConditionalStatus from './components/conditional_status';
+import ManageScheculeComponent from './components/manage/manage_schedule';
+import StadiumSelectorComponent from './components/manage/stadiumselector';
+import SelectableConditionalStatus from './components/manage/selectable_conditional_status';
 import { FirebaseControl } from './firebase/FirebaseControl';
+import { StadiumInfo } from './model/stadiuminfo';
 
 moment.locale('ja');
 
-Vue.use(VueMaterial.default)
-// register component globally, but should register locally...
-Vue.component('conditional-status', ConditionalStatus
-)
-
+const stadiumInfoArray: StadiumInfo[] = [];
 const timeRange: string[] = [];
 const dateList: string[] = [];
 const statusArray: number[][] = []
 let firebaseControl;
 let weekIndex: number = 0;
 let stadiumId: string = '0';
+let propertyChanged: number[][] = [];
 const schedule = new Vue({
   el: '#app',
   data: {
     timeSlots: timeRange,
     dates: dateList,
-    status: statusArray
+    status: statusArray,
+    stadiums: stadiumInfoArray,
   },
   beforeCreate: function() {
     firebaseControl = new FirebaseControl(firebase);
     initializeTableData(weekIndex, timeRange, dateList, statusArray);
   },
   created: function() {
-    updateTableContent(weekIndex, timeRange, dateList, statusArray);
+    updateStadiumInfo(stadiumInfoArray);
   },
   methods: {
     handlePreviousWeek: function() {
@@ -45,14 +43,39 @@ const schedule = new Vue({
     handleNextWeek: function() {
       weekIndex++;
       updateTableContent(weekIndex, timeRange, dateList, statusArray);
+    },
+    handleScheduleChanged: function(dateIndex: number, timeIndex: number, value: number) {
+      console.log('value[' + dateIndex + '][' + timeIndex  + ']=' + value);
+      updateStatusArray(dateIndex, timeIndex, value);
+    },
+    handleStadiumSelected(id: string) {
+      console.log('handleStadiumSelected')
+      stadiumId = id;
+      updateTableContent(weekIndex, timeRange, dateList, statusArray);
+    },
+    handleSubmit() {
+      putStatusToDb(stadiumId, statusArray);
     }
   },
   components: {
     'pagination': PaginationComponent,
-    'schedule-phone': ScheduleSmartphoneComponent,
-    'schedule-pc': SchedulePcComponent,
+    'manage-schedule': ManageScheculeComponent,
+    'stadium-selector': StadiumSelectorComponent 
   }
 });
+
+function updateStadiumInfo(stadiumInfoArray: StadiumInfo[]) {
+  firebaseControl.getStadiumInfo().then(stadiumArray => {
+    stadiumArray.forEach(stadium => {
+      stadiumInfoArray.push(stadium);
+    })
+  })
+}
+
+function updateStatusArray(dateIndex: number, timeIndex: number, value: number) {
+  let timeArray: number[] = statusArray[dateIndex];
+  Vue.set(timeArray, timeIndex, value);
+}
 
 function initializeTableData(weekIndex: number, timeRange: string[], dateList: string[], statusArray: number[][]) {
   initializeDateList(weekIndex, dateList);
@@ -66,6 +89,7 @@ function updateTableContent(weekIndex: number, timeRange: string[], dateList: st
     firebaseControl.getDefaultPageId().then((id) => {
       updateTimeRange(id, timeRange);
       updateStatus(id, weekIndex, statusArray);
+      stadiumId = id;
     })
   } else {
     updateTimeRange(stadiumId, timeRange);
@@ -110,6 +134,17 @@ function updateStatus(id: string, weekIndex: number, statusArray: number[][]) {
       statusInADay.push(timeRange);
     });
     statusArray.splice(index, 1, statusInADay);
+  });
+}
+
+function putStatusToDb(id: string, statusArray: number[][]) {
+  let dateMomentList = getDateMomentList(weekIndex);
+  return Promise.all(
+    statusArray.map((statudInADay, index) => {
+      return firebaseControl.putStatus(id, dateMomentList[index].format('YYYYMMDD'), statudInADay);
+    })
+  ).then(() => {
+    console.log('update completed')
   });
 }
 

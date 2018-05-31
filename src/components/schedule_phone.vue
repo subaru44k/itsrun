@@ -76,12 +76,16 @@ table.table.table-bordered
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import ConditionalStatusComponent from './conditional_status';
 
 @Component({
   props: {
     timeslots: Array,
     dates: Array,
     status: Array
+  },
+  components: {
+    'conditional-status': ConditionalStatusComponent
   }
 })
 export default class AddItemComponent extends Vue {
