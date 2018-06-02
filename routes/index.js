@@ -34,6 +34,10 @@ router.get('/ooihuto', function(req, res, next) {
   rendering('ooihuto', 'TF8vwhZ8d1pB3fOtLMRt', res, 0)
 });
 
+router.get('/nissan', function(req, res, next) {
+  rendering('nissan', 'hcRDuE9rpZfwNlpuIcJ0', res, 0)
+});
+
 function rendering(page_name, stadiumId, res, index) {
   res.render(page_name, {
     stadium_id: stadiumId,
