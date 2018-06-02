@@ -1,32 +1,32 @@
 doctype html
 html(lang='en')
-  head
-    // Global site tag (gtag.js) - Google Analytics
-    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-117088449-2')
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-117088449-2');
-    // Required meta tags
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name="description",content="陸上競技場の利用時間確認ページ 織田フィールド等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
-    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
-    link(rel='manifest', href='/site.webmanifest')
-    link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
-    // Adsense
-    script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-    script.
-      (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-7941378059940304",
-      enable_page_level_ads: true
-      });
-    // Bootstrap CSS
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
-    title いつラン - 陸上競技場の利用時間確認
+  block header
+    head
+      // Global site tag (gtag.js) - Google Analytics
+      script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-117088449-2')
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-117088449-2');
+      // Required meta tags
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+      link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+      link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+      link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+      link(rel='manifest', href='/site.webmanifest')
+      link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
+      // Adsense
+      script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+      script.
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-7941378059940304",
+        enable_page_level_ads: true
+        });
+      // Bootstrap CSS
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+      title いつラン - 陸上競技場の利用時間確認
   body
     #app
       block navigation
@@ -44,6 +44,9 @@ html(lang='en')
                 .dropdown-menu(aria-labelledby='navbarDropdown')
                   a.dropdown-item(href='/') 織田フィールド
                   a.dropdown-item(href='/yumenoshima') 夢の島陸上競技場
+                  a.dropdown-item(href='/toukyou_taiikukan') 東京体育館
+                  a.dropdown-item(href='/komazawa_olympic') 駒沢オリンピック公園陸上競技場
+                  a.dropdown-item(href='/edogawaku') 江戸川区陸上競技場
               li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                   | 神奈川県の競技場

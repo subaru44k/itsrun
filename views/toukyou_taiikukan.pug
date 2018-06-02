@@ -1,0 +1,26 @@
+extends base 
+
+append header
+  meta(name="description",content="陸上競技場の開放日確認ページ 東京体育館等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
+block schedule
+  h2 東京体育館 開放日
+  h5 東京体育館の個人利用可能時間は以下の通りです。
+  nav(aria-label='Page navigation example')
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+  .d-md-none
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+  .d-none.d-md-block
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+block information
+  h2 東京体育館の情報 
+  h4 東京体育館
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.8882710949265!2d139.712531!3d35.679753!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7eb392467dbf33f0!2z5p2x5Lqs5L2T6IKy6aSo!5e0!3m2!1sja!2sus!4v1527919252066', width='330', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3240.8882710949265!2d139.712531!3d35.679753!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7eb392467dbf33f0!2z5p2x5Lqs5L2T6IKy6aSo!5e0!3m2!1sja!2sus!4v1527919252066', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 JR総武線千駄ヶ谷駅徒歩1分
+  h6 都営大江戸線国立競技場駅徒歩1分
+  h4 連絡先
+  h6 東京体育館陸上競技場
+  h6 （TEL:03-5474-2119）

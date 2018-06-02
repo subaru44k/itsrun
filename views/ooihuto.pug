@@ -1,0 +1,25 @@
+extends base 
+
+append header
+  meta(name="description",content="陸上競技場の開放日確認ページ 大井ふ頭中央海浜公園スポーツの森陸上競技場等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
+block schedule
+  h2 大井ふ頭中央海浜公園スポーツの森陸上競技場 開放日
+  h5 大井ふ頭中央海浜公園スポーツの森陸上競技場の個人利用可能時間は以下の通りです。
+  nav(aria-label='Page navigation example')
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+  .d-md-none
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+  .d-none.d-md-block
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+block information
+  h2 大井ふ頭中央海浜公園スポーツの森陸上競技場の情報 
+  h4 大井ふ頭中央海浜公園スポーツの森陸上競技場 
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.4232020901923!2d139.7500859152564!3d35.59262598021502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861c1fd29f189%3A0x56e4cd884e10ffc4!2z44CSMTQwLTAwMDMg5p2x5Lqs6YO95ZOB5bed5Yy65YWr5r2u77yU5LiB55uu77yR4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1527934104882', width='330', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.4232020901923!2d139.7500859152564!3d35.59262598021502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601861c1fd29f189%3A0x56e4cd884e10ffc4!2z44CSMTQwLTAwMDMg5p2x5Lqs6YO95ZOB5bed5Yy65YWr5r2u77yU5LiB55uu77yR4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1527934104882', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 JR品川駅より　都営バス「品91系統」 「八潮南」下車　徒歩6分
+  h4 連絡先
+  h6 大井ふ頭中央海浜公園 大井スポーツセンター
+  h6 （TEL:03-3790-2378）
