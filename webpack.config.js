@@ -5,6 +5,7 @@ module.exports = {
    
     entry: {
       'index': './src/index.ts',
+      'manage': './src/manage.ts',
     },
 
     // ファイルの出力設定
@@ -28,6 +29,10 @@ module.exports = {
         {
           test: /\.vue$/,
           loader: ['vue-loader']
+        },
+        {
+          test: /\.css$/,
+          loader: 'style-loader!css-loader'
         }
       ]
     },
