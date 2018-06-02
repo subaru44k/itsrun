@@ -1,0 +1,25 @@
+extends base 
+
+append header
+  meta(name="description",content="陸上競技場の開放日確認ページ 駒沢オリンピック公園陸上競技場等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
+block schedule
+  h2 駒沢オリンピック公園陸上競技場 開放日
+  h5 駒沢オリンピック公園陸上競技場の個人利用可能時間は以下の通りです。
+  nav(aria-label='Page navigation example')
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+  .d-md-none
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+  .d-none.d-md-block
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+block information
+  h2 駒沢オリンピック公園陸上競技場の情報 
+  h4 駒沢オリンピック公園陸上競技場
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12972.346488110566!2d139.663655!3d35.625591!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21788df8b6ff02d4!2z6aeS5rKi44Kq44Oq44Oz44OU44OD44Kv5YWs5ZySIOmZuOS4iuertuaKgOWgtA!5e0!3m2!1sja!2sus!4v1527932434339', width='330', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12972.346488110566!2d139.663655!3d35.625591!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21788df8b6ff02d4!2z6aeS5rKi44Kq44Oq44Oz44OU44OD44Kv5YWs5ZySIOmZuOS4iuertuaKgOWgtA!5e0!3m2!1sja!2sus!4v1527932434339', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 東京メトロ半蔵門線　駒沢大学駅徒歩15分
+  h4 連絡先
+  h6 駒沢オリンピック公園総合運動場　サービス担当
+  h6 （TEL:03-3421-6199）

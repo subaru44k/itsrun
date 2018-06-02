@@ -18,6 +18,26 @@ router.get('/yumenoshima', function(req, res, next) {
   rendering('yumenoshima', 'VFurPbbeejEbtu1JNTzF', res, 0)
 });
 
+router.get('/toukyou_taiikukan', function(req, res, next) {
+  rendering('toukyou_taiikukan', 'Xd7KDIkcO0Rsroho5tBq', res, 0)
+});
+
+router.get('/komazawa_olympic', function(req, res, next) {
+  rendering('komazawa_olympic', 'WrrQXe67xvIkGfMtJ51E', res, 0)
+});
+
+router.get('/edogawaku', function(req, res, next) {
+  rendering('edogawaku', 'pViuyE86zXO1q2mMSMtI', res, 0)
+});
+
+router.get('/ooihuto', function(req, res, next) {
+  rendering('ooihuto', 'TF8vwhZ8d1pB3fOtLMRt', res, 0)
+});
+
+router.get('/nissan', function(req, res, next) {
+  rendering('nissan', 'hcRDuE9rpZfwNlpuIcJ0', res, 0)
+});
+
 function rendering(page_name, stadiumId, res, index) {
   res.render(page_name, {
     stadium_id: stadiumId,

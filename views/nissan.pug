@@ -1,0 +1,25 @@
+extends base 
+
+append header
+  meta(name="description",content="陸上競技場の開放日確認ページ 日産スタジアム陸上競技場等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
+block schedule
+  h2 日産スタジアム陸上競技場 開放日
+  h5 日産スタジアム陸上競技場の個人利用可能時間は以下の通りです。
+  nav(aria-label='Page navigation example')
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+  .d-md-none
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+  .d-none.d-md-block
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+block information
+  h2 日産スタジアム陸上競技場の情報 
+  h4 日産スタジアム陸上競技場 
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6495.5415389830005!2d139.606394!3d35.509946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbc70da0e05e43328!2z5pel55Sj44K544K_44K444Ki44Og!5e0!3m2!1sja!2sjp!4v1527936234320', width='330', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6495.5415389830005!2d139.606394!3d35.509946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbc70da0e05e43328!2z5pel55Sj44K544K_44K444Ki44Og!5e0!3m2!1sja!2sjp!4v1527936234320', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 JR南武線横浜駅　徒歩7分
+  h4 連絡先
+  h6 新横浜公園(日産スタジアム)指定管理者横浜市体育協会・ 管理JV共同事業体
+  h6 （TEL:045-477-5000）

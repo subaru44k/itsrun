@@ -1,0 +1,24 @@
+extends base 
+
+append header
+  meta(name="description",content="陸上競技場の開放日確認ページ 江戸川区陸上競技場等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
+block schedule
+  h2 江戸川区陸上競技場 開放日
+  h5 江戸川区陸上競技場の個人利用可能時間は以下の通りです。
+  nav(aria-label='Page navigation example')
+    pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
+  .d-md-none
+    schedule-phone(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+  .d-none.d-md-block
+    schedule-pc(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status')
+block information
+  h2 江戸川区陸上競技場の情報 
+  h4 江戸川区陸上競技場 
+  .d-md-none
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8600159610282!2d139.850526915258!3d35.65582038020026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188807d03969cb%3A0xd37f9ac09c6ed77e!2z44CSMTM0LTAwODcg5p2x5Lqs6YO95rGf5oi45bed5Yy65riF5paw55S677yS5LiB55uu77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1527934191837', width='330', height='300', frameborder='0', style='border:0', allowfullscreen='')
+  .d-none.d-md-block
+    iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8600159610282!2d139.850526915258!3d35.65582038020026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188807d03969cb%3A0xd37f9ac09c6ed77e!2z44CSMTM0LTAwODcg5p2x5Lqs6YO95rGf5oi45bed5Yy65riF5paw55S677yS5LiB55uu77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1527934191837', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
+  h4 アクセス
+  h6 東京メトロ東西線　西葛西駅徒歩15分
+  h4 連絡先
+  h6 TEL:03-3878-3388
