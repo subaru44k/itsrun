@@ -1,8 +1,9 @@
 extends base 
 
-block schedule
+block topcontent 
   h2 日産スタジアム陸上競技場 開放日
   h5 日産スタジアム陸上競技場の個人利用可能時間は以下の通りです。
+block schedule
   nav(aria-label='Page navigation example')
     pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
   .d-md-none
