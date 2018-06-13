@@ -7,7 +7,7 @@ moment.locale('ja')
 
 export class TableVariableOperator {
   firebaseControl: FirebaseControl;
-  constructor(firebase: any) {
+  constructor(firebase) {
     this.firebaseControl = new FirebaseControl(firebase);
   }
   updateStadiumInfo(stadiumInfoArray: StadiumInfo[]) {

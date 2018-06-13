@@ -15,6 +15,12 @@ module.exports = {
       // 出力ファイル名
       filename: '[name].bundle.js'
     },
+    optimization: {
+      splitChunks: {
+        name: 'common_module',
+        chunks: 'initial'
+      }
+    },
     module: {
       rules: [
         {
