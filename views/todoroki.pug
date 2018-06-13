@@ -1,10 +1,9 @@
 extends base 
 
-append header
-  meta(name="description",content="陸上競技場の開放日確認ページ 等々力陸上競技場等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
-block schedule
+block topcontent 
   h2 等々力陸上競技場 開放日
   h5 等々力陸上競技場の個人利用可能時間は以下の通りです。
+block schedule
   nav(aria-label='Page navigation example')
     pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
   .d-md-none
@@ -20,3 +19,12 @@ block information
     iframe.mb-2(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.666567187979!2d139.64847281502654!3d35.58662084276266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f50ab35bb61b%3A0xb861571ec1e0f177!2z44CSMjExLTAwNTIg56We5aWI5bed55yM5bed5bSO5biC5Lit5Y6f5Yy6562J44CF5Yqb77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1527175366004', width='800', height='600', frameborder='0', style='border:0', allowfullscreen='')
   h4 アクセス
   h6 南武線武蔵中原駅徒歩15分
+  h4.pt-3 使用感
+  hr.mt-1.mb-2
+  h5.expand-line-height 武蔵中原駅から徒歩15分程度の陸上競技場。
+     | メインスタジアムは世界大会も開催されるような立派な施設。すぐ近くにサブトラックもあるので、そちらで気楽に走るのも良い。
+     br
+     br
+     | 川崎フロンターレのメインスタジアムでもあり、サッカーの状況によって利用可能日は不定期になるので、利用可能かどうかはしっかり確認する必要がある。
+     | サブトラックの周囲は1kmくらいの走れる場所があるので、アップはやりやすいが、サブトラックの隣は公園と野球場があるので、時々ボールなり球が飛んでくる。
+     | また、風が強い日は砂埃が舞うので、本気で練習したいならメインスタジアムのほうが良いだろう。

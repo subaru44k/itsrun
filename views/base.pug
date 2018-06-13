@@ -12,11 +12,14 @@ html(lang='en')
       // Required meta tags
       meta(charset='utf-8')
       meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+      meta(name='description',content=description)
       link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
       link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
       link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
       link(rel='manifest', href='/site.webmanifest')
       link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+
       // Adsense
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
       script.
@@ -26,7 +29,7 @@ html(lang='en')
         });
       // Bootstrap CSS
       link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
-      title いつラン - 陸上競技場の利用時間確認
+      title= title
   body
     #app
       block navigation
@@ -58,14 +61,22 @@ html(lang='en')
             //  input.form-control.mr-sm-2(type='search', placeholder='競技場名を入力...', aria-label='Search')
             //  button.btn.btn-success.my-2.my-sm-0(type='submit') 競技場検索
       .container.pt-4
+        block topcontent
+      .container
+        script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+        // Top ad
+        ins.adsbygoogle(style='display:block;min-width:300px;max-width:970px;width:100%;height:270px', data-ad-client='ca-pub-7941378059940304', data-ad-slot='6879016191', data-ad-format='auto')
+        script.
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      .container.pt-2
         block schedule
       .container.pt-2
         block information
       .container.pt-3
         hr
         h4.pt-2 ウェブサイトの要望は、
-        a(href="https://twitter.com/shinya_yamada")
-          h4 @shinya_yamada
+        a(href="https://twitter.com/itsrun_page")
+          h4 @itsrun_page
         h4 までどうぞ
     block scripts
       // Optional JavaScript

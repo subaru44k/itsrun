@@ -1,10 +1,9 @@
 extends base 
 
-append header
-  meta(name="description",content="陸上競技場の開放日確認ページ 織田フィールド等の陸上競技場を個人利用したい際に、利用可能時間が確認できます。")
-block schedule
+block topcontent 
   h2 織田フィールド 開放日
   h5 織田フィールドの個人利用可能時間は以下の通りです。
+block schedule
   nav(aria-label='Page navigation example')
     pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
   .d-md-none
@@ -24,3 +23,19 @@ block information
   h4 連絡先
   h6 代々木公園サービスセンター
   h6 （TEL:03-3469-6081）
+  h4.pt-3 使用感
+  hr.mt-1.mb-2
+  h5.expand-line-height 原宿駅から徒歩圏内にある競技場。非常に立地がよく、火水金土と21時まで利用可能で、利用料金も無料ということで、
+     | 該当日の19時以降は仕事帰りの社会人や大学生でごった返す。
+     br
+     br
+     | 人は多いながらも、最低限のマナーは守られているので、あまり事故は起こっていないようだ。
+     | ただし、3, 4レーンまで膨らんで走らないといけないような場面にはしょっちゅう遭遇するので、
+     | 1レーンを集中して走りたい場合は夢の島陸上競技場などをおすすめする。
+     br
+     br
+     | 無料で利用できるだけでなく、更衣室と無料ロッカーがあり、シャワールームまであるという充実の施設だが、
+     | 利用者数の多さだけがネックなので、個人的には300円くらい徴収すれば人も減って良いのではないかと思う。
+     br
+     br
+     | 練習後はシャワーを浴びて、渋谷や原宿で夕食をとるという、交流にはもってこいな立地も人気を集めている理由ではないかと思う。

@@ -1,8 +1,7 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: #00B7FF;
+.expand-line-height {
+  line-height: 1.5em;
 }
