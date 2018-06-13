@@ -60,6 +60,7 @@ html(lang='en')
           pagination(v-on:previous-week-event='handlePreviousWeek', v-on:next-week-event='handleNextWeek')
         manage-schedule(v-bind:timeslots='timeSlots', v-bind:dates='dates', v-bind:status='status', v-on:schedule-changed='handleScheduleChanged')
         button.btn.btn-primary(type='button', v-on:click='handleSubmit') Update
+        .alert.alert-primary.mt-3.md-3(role='alert') {{ statusMessage[0] }}
 
     block scripts
       // Optional JavaScript
@@ -67,5 +68,19 @@ html(lang='en')
       script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
       script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+      script(src='https://www.gstatic.com/firebasejs/4.11.0/firebase.js')
+      script(src='https://www.gstatic.com/firebasejs/4.11.0/firebase-auth.js')
+      script(src='https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js')
+      script.
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyCSsO3dn7qPHhGDt4MfXSeiPrk-pF51m-g",
+          authDomain: "itsrun-aaf42.firebaseapp.com",
+          databaseURL: "https://itsrun-aaf42.firebaseio.com",
+          projectId: "itsrun-aaf42",
+          storageBucket: "itsrun-aaf42.appspot.com",
+          messagingSenderId: "337135752630"
+        };
+        firebase.initializeApp(config);
       script(src='/javascripts/common_module.bundle.js')
       script(src='/javascripts/manage.bundle.js')
