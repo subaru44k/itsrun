@@ -82,7 +82,7 @@ export class TableVariableOperator {
     });
   }
   
-  putStatusToDb(id: string, weekIndex: number, statusArray: number[][]) {
+  putStatusToDb(id: string, weekIndex: number, statusArray: number[][], successCallback: Function, errorCallback: Function) {
     let dateMomentList = this.getDateMomentList(weekIndex);
     return Promise.all(
       statusArray.map((statudInADay, index) => {
@@ -90,6 +90,11 @@ export class TableVariableOperator {
       })
     ).then(() => {
       console.log('update completed')
+      successCallback();
+    }).catch((err) => {
+      console.warn('error on update');
+      console.warn(err);
+      errorCallback();
     });
   }
   
