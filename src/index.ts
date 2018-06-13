@@ -1,29 +1,14 @@
 declare const stadiumId: string;
+declare const firebase: any;
 
 import Vue from 'vue'
 import moment from 'moment';
 
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
 import PaginationComponent from './components/pagination'
 import ScheduleSmartphoneComponent from './components/schedule_phone';
 import SchedulePcComponent from './components/schedule_pc';
 import { FirebaseControl } from './firebase/FirebaseControl';
 import { TableVariableOperator } from './model/TableVariableOperator';
-
-firebase.initializeApp({
-  apiKey: "AIzaSyCSsO3dn7qPHhGDt4MfXSeiPrk-pF51m-g",
-  authDomain: "itsrun-aaf42.firebaseapp.com",
-  databaseURL: "https://itsrun-aaf42.firebaseio.com",
-  projectId: "itsrun-aaf42",
-  storageBucket: "itsrun-aaf42.appspot.com",
-  messagingSenderId: "337135752630"
-});
-const db = firebase.firestore();
-const settings = {
-  timestampsInSnapshots: true
-};
-db.settings(settings);
 
 let tableVariableOperator: TableVariableOperator;
 const timeRange: string[] = [];
