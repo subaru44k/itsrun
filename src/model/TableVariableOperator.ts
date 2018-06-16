@@ -49,13 +49,13 @@ export class TableVariableOperator {
   }
   
   initializeStatus(statusArray: number[][]) {
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
-    statusArray.push([0, 0, 0]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
+    statusArray.push([-1, -1, -1]);
   }
   
   updateTimeRange(id: string, timeRange: string[]) {
@@ -79,9 +79,9 @@ export class TableVariableOperator {
         statusInADay.push(timeRange);
       });
       statusArray.splice(index, 1, statusInADay);
-    });
+    })
   }
-  
+
   putStatusToDb(id: string, weekIndex: number, statusArray: number[][], successCallback: Function, errorCallback: Function) {
     let dateMomentList = this.getDateMomentList(weekIndex);
     return Promise.all(
