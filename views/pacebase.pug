@@ -1,0 +1,78 @@
+doctype html
+html(lang='en')
+  block header
+    head
+      // Global site tag (gtag.js) - Google Analytics
+      script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-117088449-2')
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-117088449-2');
+      // Required meta tags
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+      meta(name='description',content=description)
+      link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+      link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+      link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+      link(rel='manifest', href='/site.webmanifest')
+      link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+
+      // Adsense
+      script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+      script.
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-7941378059940304",
+        enable_page_level_ads: true
+        });
+      // Bootstrap CSS
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+      title= title
+  body
+    block navigation
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+        a.navbar-brand(href='/') いつラン
+        span.navbar-text.mr-xl-5.mr-lg-5.mr-md-5
+         .text-light 競技場の利用時間確認
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggler', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarToggler.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | 東京都の競技場
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item(href='/') 織田フィールド
+                a.dropdown-item(href='/yumenoshima') 夢の島陸上競技場
+                a.dropdown-item(href='/toukyou_taiikukan') 東京体育館
+                a.dropdown-item(href='/komazawa_olympic') 駒沢オリンピック公園陸上競技場
+                a.dropdown-item(href='/edogawaku') 江戸川区陸上競技場
+                a.dropdown-item(href='/ooihuto') 大井ふ頭中央海浜公園陸上競技場
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | 神奈川県の競技場
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item(href='/todoroki') 等々力陸上競技場
+                a.dropdown-item(href='/nissan') 日産スタジアム
+          //form.form-inline.my-2.my-lg-0
+          //  input.form-control.mr-sm-2(type='search', placeholder='競技場名を入力...', aria-label='Search')
+          //  button.btn.btn-success.my-2.my-sm-0(type='submit') 競技場検索
+    .container.pt-2#app
+      //- under vue.js's control
+      block content
+    .container.pt-3
+      hr
+      h4.pt-2 ウェブサイトの要望は、
+      a(href="https://twitter.com/itsrun_page")
+        h4 @itsrun_page
+      h4 までどうぞ
+  block scripts
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(src='/javascripts/common_module.bundle.js')
+    script(src='/javascripts/pacelist.bundle.js')
