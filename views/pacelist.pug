@@ -1,28 +1,36 @@
 extends pacebase 
 
 block content
-  h2 織田フィールドの情報 
-  h4 代々木公園陸上競技場(織田フィールド)
+  .mb-3
+    h3 ペース表示種目
+    select.custom-select
+      option() マラソン　〜３時間半
+      option(selected) マラソン　３時間半〜５時間
+      option() マラソン　５時間〜７時間
+      option() 10000m
+      option() 1500m
+      option() 800m
+
   .table-responsive
-    table.table
+    table.table.table-bordered
       thead
         tr
-          th(scope='col') #
+          th(scope='col') 目標タイム
           |       
-          th(scope='col') First
+          th(scope='col') 2'00'00
           |       
-          th(scope='col') Last
+          th(scope='col') 2'06'35
           |       
-          th(scope='col') Handle
+          th(scope='col') xxxxxx
           |       
-          th(scope='col') Handle
+          th(scope='col') aaaaaa
           |       
-          th(scope='col') Handle
+          th(scope='col') aaaaaa
           |       
-          th(scope='col') Handle
+          th(scope='col') aaaaaa
       tbody
         tr
-          th(scope='row') 1
+          th(scope='row') 1km
           |       
           td Mark
           |       
@@ -36,7 +44,7 @@ block content
           |       
           td @mdo
         tr
-          th(scope='row') 2
+          th(scope='row') 5km
           |       
           td Jacob
           |       
@@ -50,7 +58,119 @@ block content
           |       
           td @fat
         tr
-          th(scope='row') 3
+          th(scope='row') 10km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 15km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 20km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') ハーフ
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 25km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 30km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 35km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') 40km
+          |       
+          td Larry
+          |       
+          td the Bird
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+          |       
+          td @twitter
+        tr
+          th(scope='row') フル
           |       
           td Larry
           |       
