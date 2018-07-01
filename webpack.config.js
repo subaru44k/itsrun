@@ -6,6 +6,7 @@ module.exports = {
     entry: {
       'index': './src/index.ts',
       'manage': './src/manage.ts',
+      'pacelist': './src/pacelist.ts',
     },
 
     // ファイルの出力設定
