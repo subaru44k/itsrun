@@ -3,10 +3,9 @@ declare const firebase: any;
 import Vue from 'vue'
 
 import firebaseNative from 'firebase';
-import PaginationComponent from './components/pagination'
-import ManageScheculeComponent from './components/manage/manage_schedule';
-import StadiumSelectorComponent from './components/manage/stadiumselector';
-import SelectableConditionalStatus from './components/manage/selectable_conditional_status';
+import PaginationComponent from './components/pagination.vue'
+import ManageScheculeComponent from './components/manage/manage_schedule.vue';
+import StadiumSelectorComponent from './components/manage/stadiumselector.vue';
 import { StadiumInfo } from './model/stadiuminfo';
 import { TableVariableOperator } from './model/TableVariableOperator';
 
