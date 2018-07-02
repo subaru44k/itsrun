@@ -2,19 +2,16 @@ declare const stadiumId: string;
 declare const firebase: any;
 
 import Vue from 'vue'
-import moment from 'moment';
 
-import PaginationComponent from './components/pagination'
-import ScheduleSmartphoneComponent from './components/schedule_phone';
-import SchedulePcComponent from './components/schedule_pc';
-import { FirebaseControl } from './firebase/FirebaseControl';
+import PaginationComponent from './components/pagination.vue'
+import ScheduleSmartphoneComponent from './components/schedule_phone.vue';
+import SchedulePcComponent from './components/schedule_pc.vue';
 import { TableVariableOperator } from './model/TableVariableOperator';
 
 let tableVariableOperator: TableVariableOperator;
 const timeRange: string[] = [];
 const dateList: string[] = [];
 const statusArray: number[][] = []
-let firebaseControl;
 let weekIndex: number = 0;
 const schedule = new Vue({
   el: '#app',
