@@ -1,6 +1,6 @@
 <template lang="pug">
 .table-responsive
-  table.table.table-bordered
+  table.table.table-bordered.table-phone
     thead
       tr
         th(scope='col') 目標タイム
@@ -262,11 +262,11 @@ import Vue from 'vue'
 import Component from 'vue-class-component';
 import { mapState } from "vuex";
 import * as Vuex from "vuex";
-import TimeContainer from '../model/TimeContainer';
-import LapTimeCalculator from '../model/LapTimeCalculator';
+import TimeContainer from '../../model/TimeContainer';
+import LapTimeCalculator from '../../model/LapTimeCalculator';
 
 @Component
-export default class PaceTableComponent extends Vue {
+export default class PaceTablePcComponent extends Vue {
 
     get lapTimeList() {
         const times: TimeContainer[] = this.$store.state.targetTimes;

@@ -2,13 +2,10 @@ extends pacebase
 
 block content
   .mb-3
-    h3 ペース表示種目
-    select.custom-select
-      option() マラソン　〜３時間半
-      option(selected) マラソン　３時間半〜５時間
-      option() マラソン　５時間〜６時間半
-      option() 10000m
-      option() 1500m
-      option() 800m
+    h3 マラソンのラップタイム
+    laptimeselector
 
-  pacetable
+  .d-md-none
+    pacetable_phone
+  .d-none.d-md-block
+    pacetable_pc

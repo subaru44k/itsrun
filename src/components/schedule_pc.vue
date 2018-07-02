@@ -46,7 +46,7 @@ table.table.table-bordered
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import ConditionalStatusComponent from './conditional_status';
+import ConditionalStatusComponent from './conditional_status.vue';
   
 @Component({
   props: {

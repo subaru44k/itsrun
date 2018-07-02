@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pacelist', {
-    title: 'マラソンペース表',
-    description: 'マラソンペース'
+    title: 'いつラン - マラソンのペース表。5kmごとのラップ表記。',
+    description: 'マラソンの5kmごとのラップタイムがひと目で分かります。サブスリー、サブフォー、サブファイブ、2時間の世界記録まで。スマートフォン対応。'
   })
 });
 
