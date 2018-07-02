@@ -1,6 +1,6 @@
 <template lang="pug">
 .table-responsive
-  table.table.table-bordered
+  table.table.table-bordered.table-striped
     thead
       tr
         th(scope='col') 目標タイム
