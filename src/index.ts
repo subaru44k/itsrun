@@ -30,10 +30,12 @@ const schedule = new Vue({
   methods: {
     handlePreviousWeek: function() {
       weekIndex--;
+      tableVariableOperator.updateStatusToInitialValue(statusArray);
       tableVariableOperator.updateTableContent(stadiumId, weekIndex, timeRange, dateList, statusArray);
     },
     handleNextWeek: function() {
       weekIndex++;
+      tableVariableOperator.updateStatusToInitialValue(statusArray);
       tableVariableOperator.updateTableContent(stadiumId, weekIndex, timeRange, dateList, statusArray);
     }
   },

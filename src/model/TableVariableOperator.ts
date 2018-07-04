@@ -57,6 +57,12 @@ export class TableVariableOperator {
     statusArray.push([-1, -1, -1]);
     statusArray.push([-1, -1, -1]);
   }
+
+  updateStatusToInitialValue(statusArray: number[][]) {
+    statusArray.forEach((statusInADay, index) => {
+      statusArray.splice(index, 1, [-1, -1, -1]);
+    });
+  }
   
   updateTimeRange(id: string, timeRange: string[]) {
     this.firebaseControl.getTimeRange(id).then((ranges) => {
@@ -67,19 +73,13 @@ export class TableVariableOperator {
   }
   
   updateStatus(id: string, weekIndex: number, statusArray: number[][]) {
-    this.getDateListForFirebaseId(weekIndex).forEach((dateId, index) => {
-      let statusInADay: number[] = [];
-      this.firebaseControl.getStatusInRange(id, dateId, 0).then((timeRange) => {
-        statusInADay.push(timeRange);
+    Promise.all(this.getDateListForFirebaseId(weekIndex).map(dateId => {
+      return this.firebaseControl.getStatus(id, dateId);
+    })).then((statuses) => {
+      statusArray.forEach((statusInADay, index) => {
+        statusArray.splice(index, 1, statuses[index]);
       });
-      this.firebaseControl.getStatusInRange(id, dateId, 1).then((timeRange) => {
-        statusInADay.push(timeRange);
-      });
-      this.firebaseControl.getStatusInRange(id, dateId, 2).then((timeRange) => {
-        statusInADay.push(timeRange);
-      });
-      statusArray.splice(index, 1, statusInADay);
-    })
+    });
   }
 
   putStatusToDb(id: string, weekIndex: number, statusArray: number[][], successCallback: Function, errorCallback: Function) {

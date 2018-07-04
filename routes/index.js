@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  rendering('./ja/oda_field', '織田フィールド', '(代々木公園陸上競技場)', '0', res, 0);
+  rendering('./ja/oda_field', '織田フィールド', '(代々木公園陸上競技場)', 'nVfuSmsj9cULg3712chv', res, 0);
 });
 
 router.get('/oda_field', function(req, res, next) {
