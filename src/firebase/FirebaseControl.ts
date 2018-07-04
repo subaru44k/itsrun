@@ -37,18 +37,18 @@ export class FirebaseControl {
         })
     }
 
-    getStatusInRange(id: string, dateId: string, rangeIndex: number): Promise<number> {
+    getStatus(id: string, dateId: string): Promise<number[]> {
         return this.getDateDocument(id).doc(dateId).get().then(document => {
             if (document.exists) {
-                let data = document.data();
+                const data = document.data();
                 if (data != undefined) {
-                    return Number(data['status'][rangeIndex]);
+                    return [Number(data['status'][0]), Number(data['status'][1]), Number(data['status'][2])];
                 }
             }
-            return 0;
+            return [0, 0, 0];
         }).catch((err) => {
             console.warn(err);
-            return 0;
+            return [0, 0, 0];
         });
     }
 

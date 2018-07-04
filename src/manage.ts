@@ -51,10 +51,12 @@ const activateManagementConsole = () => {
     methods: {
       handlePreviousWeek: function() {
         weekIndex--;
+        tableVariableOperator.updateStatusToInitialValue(statusArray);
         tableVariableOperator.updateTableContent(stadiumId, weekIndex, timeRange, dateList, statusArray);
       },
       handleNextWeek: function() {
         weekIndex++;
+        tableVariableOperator.updateStatusToInitialValue(statusArray);
         tableVariableOperator.updateTableContent(stadiumId, weekIndex, timeRange, dateList, statusArray);
       },
       handleScheduleChanged: function(dateIndex: number, timeIndex: number, value: number) {
