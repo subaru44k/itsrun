@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('manage', {
+  res.render('./ja/manage', {
     title: '管理画面',
   })
 });

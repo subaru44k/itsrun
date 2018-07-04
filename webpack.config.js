@@ -7,6 +7,7 @@ module.exports = {
       'index': './src/index.ts',
       'manage': './src/manage.ts',
       'pacelist': './src/pacelist.ts',
+      'pacelist_eng': './src/pacelist_eng.ts',
     },
 
     // ファイルの出力設定

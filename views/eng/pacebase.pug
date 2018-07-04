@@ -1,0 +1,23 @@
+extends base
+
+append header
+  // Adsense
+  script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+  script.
+    (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7941378059940304",
+    enable_page_level_ads: true
+    });
+ 
+block bodycontent
+  .container.pt-4#app
+    //- under vue.js's control
+    block content
+  .container.pt-3
+    hr
+    h4.pt-2 If any request, please send a message to 
+    a(href="https://twitter.com/itsrun_page")
+      h4 @itsrun_page
+append scripts
+    script(src='/javascripts/common_module.bundle.js')
+    script(src='/javascripts/pacelist_eng.bundle.js')
